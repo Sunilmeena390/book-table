@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <titile>table</titile>
+    <link rel="stylesheet" href="table.css" </head>
+
+<body>
+    <div class="container">
+        <!-- ////////////first box -->
+        <div class="box">
+            <h1>BOOK A TABLE</h1>
+            <P>THIS IS WHERE YOU'LL ADD THE DETAILS OF YOUR BOOKINGS</P>
+            <label for="people">PEOPLE</label>
+            <select id="people">
+                <option value="1">1 person</option>
+                <option value="2">2 person</option>
+                <option value="2">3 person</option>
+                <option value="3">4 person</option>
+                <option value="5">5 person</option>
+            </select>
+            <label for="date">DATE</label>
+            <input type="date" id="date">
+            <label for="time">TIME</label>
+            <input type="time" id="time">
+            <button id="firstbutton">BOOK NOW</button>
+        </div>
+
+        <!-- /////second box -->
+
+        <div class="box" style="display: none;" id="box2">
+            <h1>BOOK A TABLE</h1>
+            <label>people</label>
+            <div class="num-grid" id="people-grid"></div>
+        </div>
+
+        <!-- /////third box -->
+
+        <div class="box" style="display: none;" id="box3">
+            <h1>Contact details</h1>
+            <p id="confirmation-summary"></p>
+            <label for="name">NAME</label>
+            <input type="text" id="name" placeholder="ENTER YOUR NAME">
+            <label for="phone num">PHONE NUMBER</label>
+            <input type="number" id="number" placeholder="0123456789">
+            <button id="secondbutton">confirm-reservation</button>
+        </div>
+    </div>
+    <script>
+
+        const boxone = document.querySelector(".box")
+        const boxtwo = document.getElementById("box2")
+        const boxthree = document.getElementById("box3")
+        const firstbtn = document.getElementById("firstbutton")
+        const secondbtn = document.getElementById("secondbutton")
+        const peopleselect = document.getElementById("people")
+        const dateinput = document.getElementById("date")
+        const timeinput = document.getElementById("time")
+        const peopleGrid = document.getElementById("people-grid")
+        const confirmationsummary = document.getElementById("confirmation-summary")
+
+
+        firstbtn.addEventListener("click", () => {
+            boxone.style.display = "none";
+            boxtwo.style.display = "block";
+            generatePeopleButtons();
+        })
+
+        const generatePeopleButtons = () => {
+            for (let i = 1; i <= 10; i++) {
+                const button = document.createElement("button");
+                button.textContent = i;
+                button.addEventListener("click", () => {
+                    peopleselect.value = i;
+                    boxtwo.style.display = "none";
+                    boxthree.style.display = "block";
+                    updateSummary();
+                })
+                peopleGrid.appendChild(button);
+            }
+        };
+
+        updateSummary = () => {
+            const people = peopleselect.options[peopleselect.selectedIndex].text;
+            const date = dateinput.value;
+            const time = timeinput.value;
+            confirmationSummary.textContent = `You are making a reservation for ${people}, on ${date} at ${time}`;
+        };
+        secondbtn.addEventListener("click", () => {
+            alert("Reservation Confirmed.!")
+        });
+
+    </script>
+</body>
+
+</html>

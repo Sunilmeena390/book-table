@@ -1,0 +1,67 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    
+}
+body{
+    background-image: url(https://media.istockphoto.com/id/1488301035/photo/buying-movie-tickets.webp?a=1&b=1&s=612x612&w=0&k=20&c=PR83dCbOkyNzF3KSKoav0ccTTpUEwDNzx00uF_5ZHvo=);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+.container{
+    margin-left: 33rem;
+    margin-top: 7rem;
+}
+.box {
+    background-color:gold;
+    height: 420px;
+    width: fit-content;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+}
+.box h1 {
+    font-size: xx-large;
+    margin-bottom: 15px;
+}
+.box p {
+    font-size: large;
+    margin-bottom: 15px;
+}
+.box label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.box input, .box select, .box button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.box button {
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+.box button:hover {
+    background-color:darkgreen;
+}
+
+.num-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
